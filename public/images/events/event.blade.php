@@ -1,0 +1,1 @@
+<img src="https://via.placeholder.com/300x200?text=Event+Image" alt="Evento">
