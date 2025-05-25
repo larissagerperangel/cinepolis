@@ -6,15 +6,14 @@
     <title>@yield('title', 'Cinépolis - O teu cine máis cerca')</title> <!-- Valor de la sección del título, o el texto por defecto si no se define -->
     <meta name="description" content="Cinépolis - O teu cine máis cerca, sempre ao teu ritmo">
     
-    <!-- Fuentes de GOOGLE -->
+    <!-- Fuentes de GOOGLE, para que la conexión cargué más rápido y para definir el tipo de letra y su grosor -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- CSS de Bootstrap -->
+    <!-- Funte de CSS de las clases y los estilos predefinidos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Fuente Awesome, para los iconos vectoriales  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- CSS Personalizado -->
@@ -36,7 +35,7 @@
         @include('partials.footer')
     </div>
     
-    <!-- JS de Bootstrap -->
+    <!-- JS para agregar funcionalidades dinámicas y interactivas a Bootstrap (como el carrusel) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- JS personalizado -->

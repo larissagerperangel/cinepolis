@@ -114,16 +114,40 @@
                     </p>
                 </div>
                 <div class="col-lg-4">
-                    <form action="#" method="POST" class="d-flex gap-2">
-                        <input type="email" class="form-control" placeholder="O teu email" required> <!-- Campo email -->
-                        <button type="submit" class="btn btn-warning">Subscribirse</button> <!-- Botón de subscripción -->
+                    <form id="newsletter-form" class="d-flex gap-2">
+                        <input type="email" id="newsletter-email-home" name="email" class="form-control" placeholder="O teu email" required> <!-- campo email -->
+                        <button type="submit" class="btn btn-warning">Subscribirse</button> <!-- botón de subscripción -->
                     </form>
+
+                    <div id="newsletter-success" class="alert alert-success mt-3 d-none" role="alert">
+                        Subscrición realizada con éxito!
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('newsletter-form');
+        const successMessage = document.getElementById('newsletter-success');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // evita recargar la página
+            successMessage.classList.remove('d-none'); // muestra el mensaje
+            form.reset(); // limpia el formulario
+
+            // Ocultar el mensaje luego de 4 segundos (opcional)
+            setTimeout(() => {
+                successMessage.classList.add('d-none');
+            }, 4000);
+        });
+    });
+</script>
+@endpush
 
 @push('styles') <!-- Llamo al método que me permite añadir CSS -->
 <style>

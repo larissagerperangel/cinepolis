@@ -8,14 +8,14 @@
     
     @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
-        {{ session('success') }}
+        {{ session('success') }} <!-- Muestro una alerta si el formulario se envió correctamente -->
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
     
     <div class="row g-4 mb-5">
-        <!-- Contact Information -->
-        <div class="col-lg-6">
+        <!-- Información de Contacto -->
+        <div class="col-lg-6"> <!-- columna a la izquierda -->
             <div class="card shadow-sm h-100">
                 <div class="card-body">
                     <h2 class="fs-4 fw-bold mb-4">Información de contacto</h2>
@@ -37,7 +37,7 @@
                         </div>
                         <div>
                             <h3 class="fs-5 fw-bold mb-2">Teléfono</h3>
-                            <p class="text-muted">+34 981 123 456</p>
+                            <p class="text-muted">+34 698 171 329</p>
                         </div>
                     </div>
                     
@@ -47,7 +47,7 @@
                         </div>
                         <div>
                             <h3 class="fs-5 fw-bold mb-2">Correo electrónico</h3>
-                            <p class="text-muted">info@cinepolis.gal</p>
+                            <p class="text-muted">larigerpe07@gmail.gal</p>
                         </div>
                     </div>
                     
@@ -64,13 +64,13 @@
                     
                     <h3 class="fs-5 fw-bold mb-3">Síguenos</h3>
                     <div class="d-flex gap-2">
-                        <a href="#" class="btn btn-danger rounded-circle">
+                        <a href="https://www.facebook.com/LariGerpe" class="btn btn-danger rounded-circle">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="btn btn-danger rounded-circle">
+                        <a href="https://www.instagram.com/larigerpee" class="btn btn-danger rounded-circle">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="btn btn-danger rounded-circle">
+                        <a href="https://www.twitter.com/lari_gerpee" class="btn btn-danger rounded-circle">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
@@ -78,19 +78,19 @@
             </div>
         </div>
         
-        <!-- Contact Form -->
-        <div class="col-lg-6">
+        <!-- Formulario de Contacto -->
+        <div class="col-lg-6"> <!-- columna a la derecha -->
             <div class="card shadow-sm h-100">
                 <div class="card-body">
                     <h2 class="fs-4 fw-bold mb-4">Envíanos unha mensaxe</h2>
                     
                     <form action="{{ route('contacto.send') }}" method="POST">
-                        @csrf
+                        @csrf <!-- seguridad -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome completo</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
                             @error('name')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div> <!-- validación de Laravel -->
                             @enderror
                         </div>
                         
@@ -127,7 +127,7 @@
         </div>
     </div>
     
-    <!-- Map -->
+    <!-- Mapa de Ubicación -->
     <div class="card shadow-sm mb-5">
         <div class="card-body p-0">
             <div class="ratio ratio-21x9">
@@ -136,7 +136,7 @@
         </div>
     </div>
     
-    <!-- FAQ Section -->
+    <!-- Sección de preguntas frecuentes -->
     <section>
         <h2 class="fs-3 fw-bold mb-4">Preguntas frecuentes</h2>
         
