@@ -5,7 +5,7 @@
 @section('content')
 <div class="container py-5">
     <div class="row g-4">
-        <!-- Movie Information -->
+        <!-- Información de la película -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
                 <div class="card-body">
@@ -45,7 +45,7 @@
             </div>
         </div>
         
-        <!-- Booking Form -->
+        <!-- Formuario de Reservas -->
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header bg-white p-0">
@@ -65,7 +65,7 @@
                 
                 <div class="card-body">
                     <div class="tab-content" id="bookingTabsContent">
-                        <!-- Seats Tab -->
+                        <!-- Pestaña de los asientos -->
                         <div class="tab-pane fade show active" id="seats-tab-pane" role="tabpanel" tabindex="0">
                             <h2 class="fs-5 fw-bold mb-3">Selecciona día e hora</h2>
                             
@@ -163,7 +163,7 @@
                             </div>
                         </div>
                         
-                        <!-- Payment Tab -->
+                        <!-- Pestaña para realizar el pago -->
                         <div class="tab-pane fade" id="payment-tab-pane" role="tabpanel" tabindex="0">
                             <form id="booking-form" action="{{ route('booking.store') }}" method="POST">
                                 @csrf
@@ -282,7 +282,7 @@
         const selectedSeatsInput = document.getElementById('selected-seats');
         const showtimeIdInput = document.getElementById('showtime-id');
         
-        // State
+        // Estado
         let state = {
             day: {{ request()->input('day', 0) }},
             time: "{{ request()->input('time', '') }}",
@@ -292,9 +292,9 @@
             seatPrice: 7.50
         };
         
-        // Functions
+        // Funciones
         function updateUI() {
-            // Update day buttons
+            // Actualización de los botones del día
             dayButtons.forEach(btn => {
                 const day = parseInt(btn.getAttribute('data-day'));
                 if (day === state.day) {
@@ -306,7 +306,7 @@
                 }
             });
             
-            // Update time buttons
+            // Actualización de los botones del tiempo
             timeButtons.forEach(btn => {
                 const time = btn.getAttribute('data-time');
                 if (time === state.time) {
@@ -318,14 +318,14 @@
                 }
             });
             
-            // Update seats count
+            // Actualización del conteo de los asientos
             seatsCountEl.textContent = state.seatsCount;
             
-            // Update selected day and time
+            // Actualización del día y el tiempo seleccionado
             const days = ['Hoxe', 'Mañá', 'Pasado mañá'];
             selectedDayTimeEl.textContent = `${days[state.day]} - ${state.time}`;
             
-            // Update selected seats
+            // Actualización de los sitios seleccionados
             seatButtons.forEach(btn => {
                 const seat = btn.getAttribute('data-seat');
                 if (state.selectedSeats.includes(seat)) {
@@ -335,17 +335,15 @@
                 }
             });
             
-            // Update selected seats count and total price
+            // Actualizar el número de asientos seleccionados y el precio total
             selectedSeatsCountEl.textContent = state.selectedSeats.length;
             totalPriceEl.textContent = `${(state.selectedSeats.length * state.seatPrice).toFixed(2)} €`;
             
-            // Update continue button
+            // Actualización del botón de continuar
             continueToPaymentBtn.disabled = state.selectedSeats.length === 0 || state.time === '';
             
-            // Update form inputs
+            // Actualizar los botones de los inputs
             selectedSeatsInput.value = JSON.stringify(state.selectedSeats);
-            // In a real app, you would get the showtime ID from the database based on movie, day and time
-            showtimeIdInput.value = '1'; // Placeholder
         }
         
         // Event Listeners
@@ -366,7 +364,7 @@
         decreaseSeatsBtn.addEventListener('click', function() {
             if (state.seatsCount > 1) {
                 state.seatsCount--;
-                // If we have more selected seats than the new count, remove the last ones
+                // Si tenemos más asientos seleccionados que el nuevo recuento, eliminamos los últimos
                 if (state.selectedSeats.length > state.seatsCount) {
                     state.selectedSeats = state.selectedSeats.slice(0, state.seatsCount);
                 }
@@ -386,11 +384,11 @@
                 const seat = this.getAttribute('data-seat');
                 const index = state.selectedSeats.indexOf(seat);
                 
-                if (index > -1) {
-                    // Seat is already selected, remove it
+                if (index > -1) {     
+                    //El asiento ya está seleccionado, elimínelo
                     state.selectedSeats.splice(index, 1);
                 } else if (state.selectedSeats.length < state.seatsCount) {
-                    // Seat is not selected and we haven't reached the limit
+                    //El asiento no está seleccionado y no hemos alcanzado el límite
                     state.selectedSeats.push(seat);
                 }
                 
@@ -408,7 +406,7 @@
             seatsTab.click();
         });
         
-        // Payment method toggle
+        // Alternar método de pago
         const paymentMethodRadios = document.querySelectorAll('input[name="payment_method"]');
         const cardPaymentFields = document.getElementById('card-payment-fields');
         
@@ -422,7 +420,7 @@
             });
         });
         
-        // Initialize UI
+        // Inicializar UI
         updateUI();
     });
 </script>

@@ -3,7 +3,7 @@
 @section('title', $movie->title . ' - Cinépolis')
 
 @section('content')
-<!-- Hero Section -->
+
 <div class="position-relative" style="height: 500px;">
     <img src="{{ asset('images/movies/' . $movie->cover_image) }}" class="w-100 h-100 object-fit-cover" alt="{{ $movie->title }}">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-dark"></div>
@@ -55,7 +55,7 @@
 </div>
 
 <div class="container py-5">
-    <!-- Movie Details Tabs -->
+    <!-- Pestaña de detalle de las películas -->
     <ul class="nav nav-tabs mb-4" id="movieTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="synopsis-tab" data-bs-toggle="tab" data-bs-target="#synopsis-tab-pane" type="button" role="tab" aria-selected="true">Sinopse</button>
@@ -69,7 +69,7 @@
     </ul>
     
     <div class="tab-content mb-5" id="movieTabsContent">
-        <!-- Synopsis Tab -->
+        <!-- Pestaña de la sinopsis-->
         <div class="tab-pane fade show active" id="synopsis-tab-pane" role="tabpanel" tabindex="0">
             <div class="row">
                 <div class="col-lg-8">
@@ -93,7 +93,7 @@
             </div>
         </div>
         
-        <!-- Showtimes Tab -->
+        <!-- Pestaña de los horarios -->
         <div class="tab-pane fade" id="showtimes-tab-pane" role="tabpanel" tabindex="0">
             <h2 class="fs-4 fw-bold mb-4">Horarios dispoñibles</h2>
             
@@ -120,7 +120,7 @@
             </div>
         </div>
         
-        <!-- Cast Tab -->
+        <!-- Pestaña de los actores -->
         <div class="tab-pane fade" id="cast-tab-pane" role="tabpanel" tabindex="0">
             <h2 class="fs-4 fw-bold mb-4">Reparto principal</h2>
             
@@ -137,7 +137,7 @@
         </div>
     </div>
     
-    <!-- Related Movies -->
+    <!-- Películas relacionadas -->
     <section>
         <div class="d-flex align-items-center mb-4">
             <i class="fas fa-film text-danger me-2"></i>
@@ -166,7 +166,7 @@
     </section>
 </div>
 
-<!-- Trailer Modal -->
+<!-- Sección Trailer -->
 <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
