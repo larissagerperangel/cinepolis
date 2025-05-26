@@ -1,6 +1,6 @@
 # 🎬 Cinépolis - Aplicación Web de Cine
 
-Unha aplicación web moderna para a xestión dun cine, desenvolvida con Laravel, PHP, JavaScript, HTML e Bootstrap.
+Unha aplicación web moderna para a xestión dun cine, desenvolvida con Laravel, PHP, JavaScript, HTML, CSS e Bootstrap.
 
 ## 📋 Táboa de Contidos
 
