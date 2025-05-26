@@ -56,11 +56,9 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 - Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 ou superior 
 
 2. **Composer** (xestor de dependencias de PHP)
-- Descarga desde: [https://getcomposer.org/download/](https://getcomposer.org/download/) 
-   
-3. **Sigue o instalador para Windows**
+- Descarga desde: [https://getcomposer.org/download/](https://getcomposer.org/download/) - Sigue o instalador para Windows
 
-4. **Git** (para descargar o código)
+3. **Git** (para descargar o código)
 
 - Descarga desde: [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
