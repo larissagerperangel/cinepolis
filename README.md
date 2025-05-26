@@ -53,7 +53,7 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 
 1. **XAMPP** (inclúe PHP, MySQL y Apache)
 
-- Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 o superior / **Composer** (xestor de dependencias de PHP)
+- Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 ou superior / **Composer** (xestor de dependencias de PHP)
 
 - Descarga desde: [https://getcomposer.org/download/](https://getcomposer.org/download/)
    
