@@ -2,28 +2,28 @@
 
 Unha aplicación web moderna para a xestión dun cine, desarrollada con Laravel, PHP, JavaScript, HTML e Bootstrap.
 
-## 📋 Tabla de Contenidos
+## 📋 Tabla de Contidos
 
 
 - [🎬 Cinépolis - Aplicación Web de Cine](#-cinépolis---aplicación-web-de-cine)
-  - [📋 Tabla de Contenidos](#-tabla-de-contenidos)
-  - [🎯 ¿Qué es este proyecto?](#-qué-es-este-proyecto)
-  - [✨ Características principales](#-características-principales)
+  - [📋 Tabla de Contidos](#-tabla-de-contidos)
+  - [🎯 Que é este proxecto?](#-que-é-este-proxecto)
+  - [✨ Características principais](#-características-principais)
   - [🔧 Requisitos previos](#-requisitos-previos)
     - [Para Windows:](#para-windows)
   - [🚀 Instalación paso a paso](#-instalación-paso-a-paso)
-    - [Paso 1: Descargar el proyecto](#paso-1-descargar-el-proyecto)
+    - [Paso 1: Descargar o proxecto](#paso-1-descargar-o-proxecto)
     - [Paso 2: Instalar dependencias](#paso-2-instalar-dependencias)
-    - [Paso 3: Configurar la base de datos](#paso-3-configurar-la-base-de-datos)
+    - [Paso 3: Configurar a base de datos](#paso-3-configurar-a-base-de-datos)
     - [Paso 4: Configurar Laravel](#paso-4-configurar-laravel)
-    - [Paso 5: Iniciar la aplicación](#paso-5-iniciar-la-aplicación)
-  - [🎮 Cómo usar la aplicación](#-cómo-usar-la-aplicación)
-    - [Para usuarios finales:](#para-usuarios-finales)
+    - [Paso 5: Iniciar a aplicación](#paso-5-iniciar-a-aplicación)
+  - [🎮 Cómo usar a aplicación](#-cómo-usar-a-aplicación)
+    - [Para usuarios finais:](#para-usuarios-finais)
     - [Navegación:](#navegación)
-  - [📚 Tecnologías utilizadas](#-tecnologías-utilizadas)
+  - [📚 Tecnoloxías utilizadas](#-tecnoloxías-utilizadas)
 
 
-## 🎯 Qué é este proyecto?
+## 🎯 Que é este proxecto?
 
 **Cinépolis** é una aplicación web que simula o sitio web dun cine. Permite aos usuarios:
 
@@ -124,7 +124,7 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 - Os botóns vermllos son para accións principais (comprar entradas)
 - Os botóns grises son para accións secundarias (ver detalles)
 
-## 📚 Tecnologías utilizadas
+## 📚 Tecnoloxías utilizadas
 
 - **Backend:** Laravel (PHP)
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap 
