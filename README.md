@@ -31,8 +31,7 @@ Unha aplicación web moderna para a xestión dun cine, desenvolvida con Laravel,
 - Consultar detalles de cada película
 - Reservar entradas e seleccionar asentos
 - Consultar eventos especiais
-- Contactar con cine
-
+- Contactar có cine
 
 É un proxecto educativo sobre unha aplicación web completa e funcional.
 
