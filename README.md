@@ -40,9 +40,9 @@ Unha aplicación web moderna para a xestión dun cine, desenvolvida con Laravel,
 - 🎬 **Carteleira de películas** con información detallada
 - 🎫 **Sistema de reservas** con selección de asentos
 - 📅 **Xestión de eventos** especiais
-- 📱 **Deseño responsive** (adáptase a móbiles e tablets)
+- 📱 **Deseño responsive** (adáptase a móbiles e tabletas)
 - 🌐 **Interface en galego** (idioma rexional de Galicia, España)
-- 🎨 **Deseño moderno** con cores corporativos
+- 🎨 **Deseño moderno** con cores corporativas
 
 
 ## 🔧 Requisitos previos
