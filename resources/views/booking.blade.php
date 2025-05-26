@@ -45,7 +45,7 @@
             </div>
         </div>
         
-        <!-- Formuario de Reservas -->
+        <!-- Formulario de Reservas -->
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header bg-white p-0">
@@ -342,7 +342,7 @@
             // Actualización del botón de continuar
             continueToPaymentBtn.disabled = state.selectedSeats.length === 0 || state.time === '';
             
-            // Actualizar los botones de los inputs
+            // Actualizar los botones de los inputs (de los asientos)
             selectedSeatsInput.value = JSON.stringify(state.selectedSeats);
         }
         
@@ -420,7 +420,7 @@
             });
         });
         
-        // Inicializar UI
+        // Inicializar la interfaz de usuario
         updateUI();
     });
 </script>

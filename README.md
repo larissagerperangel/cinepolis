@@ -1,81 +1,79 @@
 # 🎬 Cinépolis - Aplicación Web de Cine
 
-Una aplicación web moderna para la gestión de un cine, desarrollada con Laravel, PHP, JavaScript, HTML y Bootstrap.
+Unha aplicación web moderna para a xestión dun cine, desenvolvida con Laravel, PHP, JavaScript, HTML, CSS e Bootstrap.
 
-## 📋 Tabla de Contenidos
+## 📋 Táboa de Contidos
 
 
 - [🎬 Cinépolis - Aplicación Web de Cine](#-cinépolis---aplicación-web-de-cine)
-  - [📋 Tabla de Contenidos](#-tabla-de-contenidos)
-  - [🎯 ¿Qué es este proyecto?](#-qué-es-este-proyecto)
-  - [✨ Características principales](#-características-principales)
+  - [📋 Táboa de Contidos](#-táboa-de-contidos)
+  - [🎯 Que é este proxecto?](#-que-é-este-proxecto)
+  - [✨ Características principais](#-características-principais)
   - [🔧 Requisitos previos](#-requisitos-previos)
     - [Para Windows:](#para-windows)
   - [🚀 Instalación paso a paso](#-instalación-paso-a-paso)
-    - [Paso 1: Descargar el proyecto](#paso-1-descargar-el-proyecto)
+    - [Paso 1: Descargar o proxecto](#paso-1-descargar-o-proxecto)
     - [Paso 2: Instalar dependencias](#paso-2-instalar-dependencias)
-    - [Paso 3: Configurar la base de datos](#paso-3-configurar-la-base-de-datos)
+    - [Paso 3: Configurar a base de datos (BD)](#paso-3-configurar-a-base-de-datos-bd)
     - [Paso 4: Configurar Laravel](#paso-4-configurar-laravel)
-    - [Paso 5: Iniciar la aplicación](#paso-5-iniciar-la-aplicación)
-  - [🎮 Cómo usar la aplicación](#-cómo-usar-la-aplicación)
-    - [Para usuarios finales:](#para-usuarios-finales)
+    - [Paso 5: Iniciar a aplicación](#paso-5-iniciar-a-aplicación)
+  - [🎮 Como usar a aplicación](#-como-usar-a-aplicación)
+    - [Para usuarios finais:](#para-usuarios-finais)
     - [Navegación:](#navegación)
-  - [📚 Tecnologías utilizadas](#-tecnologías-utilizadas)
+  - [📚 Tecnoloxías utilizadas](#-tecnoloxías-utilizadas)
 
 
-## 🎯 ¿Qué es este proyecto?
+## 🎯 Que é este proxecto?
 
-**Cinépolis** es una aplicación web que simula el sitio web de un cine. Permite a los usuarios:
+**Cinépolis** é una aplicación web que simula o sitio web dun cine. Permite aos usuarios:
 
-- Ver la cartelera de películas
+- Ver a carteleira de películas
 - Consultar detalles de cada película
-- Reservar entradas y seleccionar asientos
-- Consultar eventos especiales
-- Contactar con el cine
+- Reservar entradas e seleccionar asentos
+- Consultar eventos especiais
+- Contactar có cine
 
+É un proxecto educativo sobre unha aplicación web completa e funcional.
 
-Es un proyecto educativo que demuestra cómo crear una aplicación web completa y funcional.
+## ✨ Características principais
 
-## ✨ Características principales
-
-- 🎬 **Cartelera de películas** con información detallada
-- 🎫 **Sistema de reservas** con selección de asientos
-- 📅 **Gestión de eventos** especiales
-- 📱 **Diseño responsive** (se adapta a móviles y tablets)
-- 🌐 **Interfaz en gallego** (idioma regional de Galicia, España)
-- 🎨 **Diseño moderno** con colores corporativos
+- 🎬 **Carteleira de películas** con información detallada
+- 🎫 **Sistema de reservas** con selección de asentos
+- 📅 **Xestión de eventos** especiais
+- 📱 **Deseño responsive** (adáptase a móbiles e tabletas)
+- 🌐 **Interface en galego** (idioma rexional de Galicia, España)
+- 🎨 **Deseño moderno** con cores corporativas
 
 
 ## 🔧 Requisitos previos
 
-Antes de instalar la aplicación, necesitas tener instalado en tu computadora:
+Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 
 ### Para Windows:
 
-1. **XAMPP** (incluye PHP, MySQL y Apache)
+1. **XAMPP** (inclúe PHP, MySQL y Apache)
 
-- Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 o superior / **Composer** (gestor de dependencias de PHP)
+- Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 ou superior 
 
-- Descarga desde: [https://getcomposer.org/download/](https://getcomposer.org/download/)
-   
-- Sigue el instalador para Windows
+2. **Composer** (xestor de dependencias de PHP)
+- Descarga desde: [https://getcomposer.org/download/](https://getcomposer.org/download/) - Sigue o instalador para Windows
 
-2. **Git** (para descargar el código)
+3. **Git** (para descargar o código)
 
 - Descarga desde: [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 
 ## 🚀 Instalación paso a paso
 
-### Paso 1: Descargar el proyecto
+### Paso 1: Descargar o proxecto
 
-1. **Abre la terminal o símbolo del sistema:**
-- Windows: Presiona `Win + R`, escribe `cmd` y presiona Enter
+1. **Abre a terminal ou símbolo do sistema:**
+- Windows: Pulsa `Win + R`, escribe `cmd` e pulsa Enter
   
-2. **Navega a la carpeta donde quieres instalar el proyecto:**
-- Ejemplo para Windows: cd C:\xampp\htdocs
+2. **Navega á carpeta onde queiras instalar o proxecto:**
+- Exemplo para Windows: cd C:\xampp\htdocs
   
-3. **Descarga el proyecto desde GitHub:**
+3. **Descarga o proxecto desde GitHub:**
 - git clone https://github.com/larissagerperangel/cinepolis.git
 - cd cinepolis
   
@@ -83,53 +81,53 @@ Antes de instalar la aplicación, necesitas tener instalado en tu computadora:
 **Instalar dependencias de PHP**
 - composer install
 
-### Paso 3: Configurar la base de datos
+### Paso 3: Configurar a base de datos (BD)
 
-1. **Inicia XAMPP/MAMP:**
+1. **Inicia XAMPP:**
 - Abre XAMPP Control Panel
 - Inicia Apache y MySQL
 
-2. **Crea la base de datos:**
-- Ve a [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
-- Haz clic en "Nueva" en el panel izquierdo
-- Escribe el nombre: `cinepolis`
-- Haz clic en "Crear"
+2. **Crea a base de datos:**
+- Vai a [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+- Fai clic en "Nueva" no panel esquerdo
+- Escribe o nome: `cinepolis`
+- Fai clic en "Crear"
 
 ### Paso 4: Configurar Laravel
-- **Generar clave de aplicación:** php artisan key:generate
+- **Xerar clave de aplicación:** php artisan key:generate
 
-- **Ejecutar migraciones (crear tablas):** php artisan migrate
+- **Executar migracións (crear táboas):** php artisan migrate
 
-- **Llenar la base de datos con datos:** php artisan db:seed
+- **Executar os seeders (para ter datos na BD):** php artisan db:seed
   
-### Paso 5: Iniciar la aplicación
-- **Iniciar el servidor de desarrollo:** php artisan serve
-- **¡Listo!** Ahora puedes abrir tu navegador haciendo ctrl+click en la url [http://localhost:8000](http://localhost:8000)
+### Paso 5: Iniciar a aplicación
+- **Iniciar o servidor de desenvolvemento:** php artisan serve
+- **¡Listo!** Agora podes abrir o teu navegador facendo ctrl+clic na url [http://localhost:8000](http://localhost:8000)
 
-## 🎮 Cómo usar la aplicación
+## 🎮 Como usar a aplicación
 
-### Para usuarios finales:
+### Para usuarios finais:
 
-1. **Página principal:** Muestra películas destacadas y eventos
-2. **Cartelera:** Lista completa de películas con filtros por género
-3. **Detalles de película:** Información completa, horarios y reparto
-4. **Reservar entradas:** Selecciona día, hora y asientos
-5. **Eventos:** Consulta eventos especiales del cine
-6. **Contacto:** Formulario para enviar mensajes
+1. **Páxina principal:** Mostra películas destacadas e eventos
+2. **Carteleira:** Lista completa de películas con filtros por xénero
+3. **Detalles de película:** Información completa, horarios e reparto
+4. **Reservar entradas:** Selecciona día, hora e asentos
+5. **Eventos:** Consulta eventos especiais do cine
+6. **Contacto:** Formulario para enviar mensaxes
 
 
 ### Navegación:
 
-- Usa el menú superior para moverte entre secciones
-- Los botones rojos son para acciones principales (comprar entradas)
-- Los botones grises son para acciones secundarias (ver detalles)
+- Usa o menú superior para moverte entre secciones
+- Os botóns vermellos son para accións principais (comprar entradas)
+- Os botóns grises son para accións secundarias (ver máis información)
 
-## 📚 Tecnologías utilizadas
+## 📚 Tecnoloxías utilizadas
 
-- **Backend:** Laravel 10 (PHP)
+- **Backend:** Laravel (PHP)
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap 
 - **Base de datos:** MySQL
-- **Iconos:** Font Awesome
-- **Fuentes:** Google Fonts (Roboto)
+- **Iconas:** Font Awesome
+- **Fontes:** Google Fonts (Roboto)...
 
-**¡Gracias por usar Cinépolis!** 🎬✨
+**¡Grazas por usar Cinépolis!** 🎬✨

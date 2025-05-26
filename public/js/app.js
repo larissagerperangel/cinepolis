@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabElements = document.querySelectorAll('[data-bs-toggle="tab"]');
     tabElements.forEach(tabEl => {
         tabEl.addEventListener('shown.bs.tab', function(event) {
-            // Puedes agregar funcionalidad adicional cuando se muestra una pestaña
+            // Podría agregar funcionalidad adicional cuando se muestra una pestaña
         });
     });
     
@@ -204,6 +204,6 @@ function initBookingPage() {
         });
     }
     
-    // Inicializar UI
+    // Inicializar UI (interfaz de usuario)
     updateUI();
 }
