@@ -1,6 +1,6 @@
 # 🎬 Cinépolis - Aplicación Web de Cine
 
-Una aplicación web moderna para la gestión de un cine, desarrollada con Laravel, PHP, JavaScript, HTML y Bootstrap.
+Unha aplicación web moderna para a xestión dun cine, desarrollada con Laravel, PHP, JavaScript, HTML e Bootstrap.
 
 ## 📋 Tabla de Contenidos
 
@@ -23,59 +23,59 @@ Una aplicación web moderna para la gestión de un cine, desarrollada con Larave
   - [📚 Tecnologías utilizadas](#-tecnologías-utilizadas)
 
 
-## 🎯 ¿Qué es este proyecto?
+## 🎯 Qué é este proyecto?
 
-**Cinépolis** es una aplicación web que simula el sitio web de un cine. Permite a los usuarios:
+**Cinépolis** é una aplicación web que simula o sitio web dun cine. Permite aos usuarios:
 
-- Ver la cartelera de películas
+- Ver a carteleira de películas
 - Consultar detalles de cada película
-- Reservar entradas y seleccionar asientos
-- Consultar eventos especiales
-- Contactar con el cine
+- Reservar entradas e seleccionar asentos
+- Consultar eventos especiais
+- Contactar con cine
 
 
-Es un proyecto educativo que demuestra cómo crear una aplicación web completa y funcional.
+É un proxecto educativo sobre unha aplicación web completa e funcional.
 
-## ✨ Características principales
+## ✨ Características principais
 
-- 🎬 **Cartelera de películas** con información detallada
-- 🎫 **Sistema de reservas** con selección de asientos
-- 📅 **Gestión de eventos** especiales
-- 📱 **Diseño responsive** (se adapta a móviles y tablets)
-- 🌐 **Interfaz en gallego** (idioma regional de Galicia, España)
-- 🎨 **Diseño moderno** con colores corporativos
+- 🎬 **Carteleira de películas** con información detallada
+- 🎫 **Sistema de reservas** con selección de asentos
+- 📅 **Xestión de eventos** especiais
+- 📱 **Diseño responsive** (adáptase a móviles e tablets)
+- 🌐 **Interfaz en gallego** (idioma rexional de Galicia, España)
+- 🎨 **Diseño moderno** con cores corporativos
 
 
 ## 🔧 Requisitos previos
 
-Antes de instalar la aplicación, necesitas tener instalado en tu computadora:
+Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 
 ### Para Windows:
 
 1. **XAMPP** (incluye PHP, MySQL y Apache)
 
-- Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 o superior / **Composer** (gestor de dependencias de PHP)
+- Descarga desde: [https://www.apachefriends.org/](https://www.apachefriends.org/) - **Versión** recomendada: 8.1 o superior / **Composer** (xestor de dependencias de PHP)
 
 - Descarga desde: [https://getcomposer.org/download/](https://getcomposer.org/download/)
    
-- Sigue el instalador para Windows
+- Sigue o instalador para Windows
 
-2. **Git** (para descargar el código)
+2. **Git** (para descargar o código)
 
 - Descarga desde: [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 
 ## 🚀 Instalación paso a paso
 
-### Paso 1: Descargar el proyecto
+### Paso 1: Descargar o proxecto
 
-1. **Abre la terminal o símbolo del sistema:**
-- Windows: Presiona `Win + R`, escribe `cmd` y presiona Enter
+1. **Abre a terminal ou símbolo do sistema:**
+- Windows: Presiona `Win + R`, escribe `cmd` e presiona Enter
   
-2. **Navega a la carpeta donde quieres instalar el proyecto:**
+2. **Navega á carpeta onde queiras instalar o proxecto:**
 - Ejemplo para Windows: cd C:\xampp\htdocs
   
-3. **Descarga el proyecto desde GitHub:**
+3. **Descarga o proxecto desde GitHub:**
 - git clone https://github.com/larissagerperangel/cinepolis.git
 - cd cinepolis
   
@@ -83,53 +83,53 @@ Antes de instalar la aplicación, necesitas tener instalado en tu computadora:
 **Instalar dependencias de PHP**
 - composer install
 
-### Paso 3: Configurar la base de datos
+### Paso 3: Configurar a base de datos
 
 1. **Inicia XAMPP/MAMP:**
 - Abre XAMPP Control Panel
 - Inicia Apache y MySQL
 
-2. **Crea la base de datos:**
-- Ve a [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
-- Haz clic en "Nueva" en el panel izquierdo
-- Escribe el nombre: `cinepolis`
-- Haz clic en "Crear"
+2. **Crea a base de datos:**
+- Vai a [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+- Fai clic en "Nueva" no panel esquerdo
+- Escribe o nombre: `cinepolis`
+- Fai clic en "Crear"
 
 ### Paso 4: Configurar Laravel
-- **Generar clave de aplicación:** php artisan key:generate
+- **Xenerar clave de aplicación:** php artisan key:generate
 
-- **Ejecutar migraciones (crear tablas):** php artisan migrate
+- **Executar migraciones (crear tablas):** php artisan migrate
 
-- **Llenar la base de datos con datos:** php artisan db:seed
+- **Executar os seeders (para ter datos na BD):** php artisan db:seed
   
-### Paso 5: Iniciar la aplicación
-- **Iniciar el servidor de desarrollo:** php artisan serve
-- **¡Listo!** Ahora puedes abrir tu navegador haciendo ctrl+click en la url [http://localhost:8000](http://localhost:8000)
+### Paso 5: Iniciar a aplicación
+- **Iniciar o servidor de desarrollo:** php artisan serve
+- **¡Listo!** Agora podes abrir o teu navegador facendo ctrl+click na url [http://localhost:8000](http://localhost:8000)
 
-## 🎮 Cómo usar la aplicación
+## 🎮 Cómo usar a aplicación
 
-### Para usuarios finales:
+### Para usuarios finais:
 
-1. **Página principal:** Muestra películas destacadas y eventos
-2. **Cartelera:** Lista completa de películas con filtros por género
-3. **Detalles de película:** Información completa, horarios y reparto
-4. **Reservar entradas:** Selecciona día, hora y asientos
-5. **Eventos:** Consulta eventos especiales del cine
-6. **Contacto:** Formulario para enviar mensajes
+1. **Páxina principal:** Mostra películas destacadas e eventos
+2. **Carteleira:** Lista completa de películas con filtros por xénero
+3. **Detalles de película:** Información completa, horarios e reparto
+4. **Reservar entradas:** Selecciona día, hora e asentos
+5. **Eventos:** Consulta eventos especiais do cine
+6. **Contacto:** Formulario para enviar mensaxes
 
 
 ### Navegación:
 
-- Usa el menú superior para moverte entre secciones
-- Los botones rojos son para acciones principales (comprar entradas)
-- Los botones grises son para acciones secundarias (ver detalles)
+- Usa o menú superior para moverte entre secciones
+- Os botóns vermllos son para accións principais (comprar entradas)
+- Os botóns grises son para accións secundarias (ver detalles)
 
 ## 📚 Tecnologías utilizadas
 
-- **Backend:** Laravel 10 (PHP)
+- **Backend:** Laravel (PHP)
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap 
 - **Base de datos:** MySQL
 - **Iconos:** Font Awesome
-- **Fuentes:** Google Fonts (Roboto)
+- **Fuentes:** Google Fonts (Roboto)...
 
-**¡Gracias por usar Cinépolis!** 🎬✨
+**¡Grazas por usar Cinépolis!** 🎬✨
