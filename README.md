@@ -81,9 +81,9 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 **Instalar dependencias de PHP**
 - composer install
 
-### Paso 3: Configurar a base de datos
+### Paso 3: Configurar a base de datos (BD)
 
-1. **Inicia XAMPP/MAMP:**
+1. **Inicia XAMPP:**
 - Abre XAMPP Control Panel
 - Inicia Apache y MySQL
 
