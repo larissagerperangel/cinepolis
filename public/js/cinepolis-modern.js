@@ -366,7 +366,7 @@ class CinepolisInteractive {
     }
   }
 
-  // Formulario de newsletter
+  // Formulario de suscripción
   initializeNewsletterForm() {
     const newsletterForms = document.querySelectorAll('form[id^="newsletter-form"]')
 
@@ -408,7 +408,7 @@ class CinepolisInteractive {
     tooltipTriggerList.map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl))
   }
 
-  // Inicializar dropdowns de Bootstrap
+  // Inicializar dropdowns (linea de subrayado con movimiento) de Bootstrap
   initializeDropdowns() {
     const dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'))
     dropdownTriggerList.map((dropdownTriggerEl) => new bootstrap.Dropdown(dropdownTriggerEl))

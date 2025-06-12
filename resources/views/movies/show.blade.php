@@ -129,7 +129,7 @@
                 @foreach($movie->cast as $index => $actor)
                 <div class="col text-center">
                     <div class="position-relative rounded-circle overflow-hidden mx-auto mb-3 actor-image-container" style="width: 120px; height: 120px;">
-                        {{-- USAR EL MÉTODO getActorImage() DEL MODELO --}}
+                        <!-- Uso el método getActorImage() del modelo -->
                         <img 
                             src="{{ $movie->getActorImage($actor, $index) }}" 
                             class="w-100 h-100 object-fit-cover actor-image" 

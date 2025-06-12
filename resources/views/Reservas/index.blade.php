@@ -8,7 +8,7 @@
         <h1 class="mb-0">As miñas reservas</h1>
         <a href="{{ url('/') }}" class="btn btn-outline-danger">
             <i class="fas fa-plus me-2"></i>Nova reserva
-        </a>
+        </a> <!-- Muestra el título y un botón para volver a la cartelera -->
     </div>
 
     @if($reservas->isEmpty())
@@ -19,7 +19,7 @@
                 <p class="text-muted mb-4">Cando fagas unha reserva, aparecerá aquí</p>
                 <a href="{{ url('/') }}" class="btn btn-danger">
                     Ver carteleira
-                </a>
+                </a> <!-- Si el usuario no tiene reservas, se muestra una tarjeta vacía con mensaje informativo y botón para ir a la cartelera -->
             </div>
         </div>
     @else
@@ -31,7 +31,7 @@
                             <span>Reserva #{{ $reserva->id }}</span>
                             <span class="badge bg-light text-dark">
                                 {{ $reserva->created_at->format('d/m/Y') }}
-                            </span>
+                            </span> <!-- sí tiene reservas -->
                         </div>
                         
                         <div class="card-body">

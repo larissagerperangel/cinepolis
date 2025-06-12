@@ -9,6 +9,8 @@ CINEPOLIS/
 |   |     ├── EventController.php
 |   |     ├── HomeController.php
 │   │     ├── MovieController.php
+|   |     ├── PerfilController.php
+|   |     ├── ReservaController.php
 |   |     ├── SpaController.php
 │   │     └── Auth/
 │   │        ├── ConfirmPasswordController.php
@@ -21,6 +23,7 @@ CINEPOLIS/
 |   |   ├── Booking.php
 |   |   ├── Event.php
 |   |   ├── Movie.php
+|   |   ├── User.php
 |   |   └── Showtime.php
 │   └── Providers/
 │       └── AppServiceProvider.php
@@ -50,12 +53,15 @@ CINEPOLIS/
 │   ├── factories/
 │   │   └── UserFactory.php
 │   ├── migrations/
+│   │   ├── 2014_10_12_100000_create_password_resets_table.php
 │   │   ├── 2025_05_20_151600_create_users_table.php
 │   │   ├── 2025_05_20_151633_create_movies_table.php
 │   │   ├── 2025_05_20_151649_create_showtimes_table.php
 │   │   ├── 2025_05_20_151658_create_bookings_table.php
 │   │   ├── 2025_05_20_151712_create_events_table.php
-│   │   └── 2025_05_20_151735_create_sessions_table.php
+│   │   ├── 2025_05_20_151735_create_sessions_table.php
+│   │   ├── 2025_06_12_141311_add_remember_token_to_users_table.php
+│   │   └── 2025_06_12_140851_create_cache_table.php
 │   ├── seeders/
 │   │   ├── DatabaseSeeder.php
 │   │   ├── EventSeeder.php
@@ -76,7 +82,8 @@ CINEPOLIS/
 |   |   |   ├── event1.jpg
 |   |   |   ├── event2.jpg
 |   |   |   ├── event3.jpg
-|   |   |   └── event4.jpg
+|   |   |   ├── event4.jpg
+|   |   |   └── event5.jpg
 |   |   └── movies/
 |   |      ├── movie1-cover.jpg
 |   |      ├── movie1-poster.jpg
@@ -93,7 +100,13 @@ CINEPOLIS/
 |   |      ├── movie7-cover.jpg
 |   |      ├── movie7-poster.jpg
 |   |      ├── movie8-cover.jpg
-|   |      └── movie8-poster.jpg
+|   |      ├── movie8-poster.jpg
+|   |      ├── movie9-cover.jpg
+|   |      ├── movie9-poster.jpg
+|   |      ├── movie10-cover.jpg
+|   |      ├── movie10-poster.jpg
+|   |      ├── movie11-cover.jpg
+|   |      └── movie11-poster.jpg
 │   ├── js/
 |   |   ├── app.js
 │   │   └── cinepolis-modern.js
@@ -120,6 +133,10 @@ CINEPOLIS/
 │       ├── partials/
 |       |   ├── header.blade.php
 |       |   └── footer.blade.php
+│       ├── perfil/
+|       |   └── index.blade.php
+│       ├── Reservas/
+|       |   └── index.blade.php
 |       ├── booking.blade.php
 |       ├── cartelera.blade.php
 |       ├── contacto.blade.php
@@ -169,12 +186,15 @@ CINEPOLIS/
 │   |   |   ├── 781aed755283dc3c441b26535a0fa61d.php
 │   |   |   ├── 787d2cceb9f2c93bcd2d6d9d00ce0465.php
 │   |   |   ├── 2505fafe8d1fc79b08957713d680def4.php
+│   |   |   ├── 8594a06880d7f8801a59166b11035445.php
 │   |   |   ├── 8831d8d215eecc107a32c56dc7d5fffc.php
+│   |   |   ├── 83380e6456add5be637d1fd28f94366c.php
 │   |   |   ├── 6364989f56f25f928ac93e4a11661cd3.php
 │   |   |   ├── 79611179a804e7ec68867b654aad6b59.php
 │   |   |   ├── a05b194adfef56b9e4ca21a5f4202110.php
 │   |   |   ├── acdeebf5d7f83b6d46b2883500e337b3.php
 │   |   |   ├── affd144ccd4fc9189fb74a284e5abce3.php
+│   |   |   ├── c909d082587076c16193916ffb696dc7.php
 │   |   |   ├── d06af4cfbfabefaed5e13ff139c6ca18.php
 │   |   |   ├── d9acaaa56ce99a478f740fb0e24191f4.php
 │   |   |   ├── eab555ac58751d63d041e063c2c3d65e.php
@@ -212,6 +232,8 @@ CINEPOLIS/
 ├── composer.lock
 |
 ├── LICENSE
+|
+├── modeloRelacional.png
 |
 ├── package-lock.json
 |

@@ -54,7 +54,6 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto"> <!-- botón de reserva -->
                                 <span class="fw-bold fs-5">{{ $event->price }}</span>
                                 <div class="d-flex gap-2">
-                                    {{-- ✅ ENLACES CORREGIDOS --}}
                                     <a href="{{ route('eventos.show', $event->id) }}" class="btn btn-outline-secondary">Detalles</a>
                                     <a href="{{ route('eventos.booking', $event->id) }}" class="btn btn-danger">Reservar praza</a>
                                 </div>
@@ -84,7 +83,7 @@
                     <div class="card-body">
                         <h3 class="card-title fs-5 fw-bold mb-2">{{ $event->title }}</h3> <!-- título -->
                         <p class="card-text text-muted small mb-3">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</p> <!-- data --> 
-                        <a href="{{ route('eventos.show', $event->id) }}" class="btn btn-outline-secondary w-100">Máis información</a> <!-- botón de más información, aún sin su funcionalidad --> 
+                        <a href="{{ route('eventos.show', $event->id) }}" class="btn btn-outline-secondary w-100">Máis información</a> <!-- botón de más información --> 
                     </div>
                 </div>
             </div>

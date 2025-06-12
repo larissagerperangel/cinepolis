@@ -19,13 +19,13 @@ class EventController extends Controller
         return view('eventos', compact('events', 'upcomingEvents')); // le devuelvo un array con los eventos y lo relacionado a ellos, a las vistas
     }
     
-    public function show($id)
+    public function show($id) // mostras detalles de eventos
     {
         $event = Event::findOrFail($id);
         return view('event-details', compact('event'));
     }
     
-    public function createBooking($id)
+    public function createBooking($id) // reservar eventos
     {
         $event = Event::findOrFail($id);
         return view('event-booking', compact('event'));

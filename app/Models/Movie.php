@@ -32,7 +32,7 @@ class Movie extends Model
         'duration' => 'integer',
     ];
 
-    // MÉTODO PARA OBTENER CAST COMO ARRAY SIEMPRE
+    // Método para obtener el reparto como ARRAY 
     public function getCastAttribute($value)
     {
         if (is_string($value)) {
@@ -49,7 +49,7 @@ class Movie extends Model
         return [];
     }
 
-    // MÉTODO OPTIMIZADO PARA OBTENER LA IMAGEN DE UN ACTOR
+    // Método para obtener la imagen de un actor
     public function getActorImage($actorName, $index = 0)
     {
         // Limpiar el nombre del actor para usarlo como nombre de archivo
@@ -65,7 +65,7 @@ class Movie extends Model
         return asset('images/cast/default-actor.jpg');
     }
 
-    // MÉTODO MEJORADO PARA LIMPIAR NOMBRE DEL ACTOR
+    // Método para mipiar nombre del actor
     private function cleanActorName($name)
     {
         // Convertir a minúsculas

@@ -22,7 +22,7 @@ class Showtime extends Model
         'available_seats' => 'array',
     ];
 
-    // MÉTODO PARA OBTENER AVAILABLE_SEATS COMO ARRAY SIEMPRE
+    // Método para obtener AVAILABLE_SEATS como array 
     public function getAvailableSeatsAttribute($value)
     {
         if (is_string($value)) {

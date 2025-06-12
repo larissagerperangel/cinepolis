@@ -127,7 +127,7 @@
                                             @for($i = 0; $i <= 9; $i++)
                                             @php
                                                 $seat = $row . $i;
-                                                // Algunos asientos aleatorios ya están ocupados
+                                                // Algunos asientos ya están ocupados
                                                 $isOccupied = 
                                                     ($row === 'B' && $i === 3) ||
                                                     ($row === 'C' && $i === 7) ||

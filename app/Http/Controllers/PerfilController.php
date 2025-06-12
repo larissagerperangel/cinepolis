@@ -7,7 +7,7 @@ class PerfilController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        return view('perfil.index', compact('user'));
+        $user = Auth::user(); //  obtiene el usuario autenticado
+        return view('perfil.index', compact('user')); // paso a la vista del perfil una variable llamada $user con los datos del usuario logueado
     }
 }

@@ -25,17 +25,17 @@ class Booking extends Model
         'total_price' => 'float',
     ];
 
-    public function user()// Define una relación: "una reserva pertenece a un usuario"
+    public function user() // Define una relación: "una reserva pertenece a un usuario"
     {
         return $this->belongsTo(User::class);
     }
 
-    public function showtime()// Define una relación: "una reserva solo tiene un horario"
+    public function showtime() // Define una relación: "una reserva solo tiene un horario"
     {
         return $this->belongsTo(Showtime::class);
     }
 
-     public function getSeatNumbersAttribute()
+     public function getSeatNumbersAttribute() //para evitar error si no hay asientos
     {
         return $this->seats ?? [];
     }
