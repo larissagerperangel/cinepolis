@@ -88,6 +88,8 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 - Inicia Apache y MySQL
 
 2. **Crea a base de datos:**
+
+![esquema modelo-relaciom](modeloRelacional.png)
 - Vai a [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
 - Fai clic en "Nueva" no panel esquerdo
 - Escribe o nome: `cinepolis`
@@ -124,8 +126,8 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 
 ## 📚 Tecnoloxías utilizadas
 
-- **Backend:** Laravel (PHP)
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap 
+- **Backend:** Laravel9 (PHP)
+- **Frontend:** HTML5, CSS3, JavaScript, Bootstrap5 
 - **Base de datos:** MySQL
 - **Iconas:** Font Awesome
 - **Fontes:** Google Fonts (Roboto)...
