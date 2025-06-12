@@ -17,7 +17,7 @@
                     
                     <div class="d-flex align-items-center text-muted mb-2 small">
                         <i class="far fa-calendar-alt me-2"></i>
-                        <span>{{ $event->date }}</span>
+                        <span>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</span>
                     </div>
                     
                     <div class="d-flex align-items-center text-muted mb-2 small">
@@ -51,7 +51,7 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <h3 class="fs-5 fw-bold mb-2">Data e hora</h3>
-                            <p>{{ $event->date }} ás {{ $event->time }}</p>
+                            <p>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }} ás {{ $event->time }}</p>
                         </div>
                         <div class="col-md-6">
                             <h3 class="fs-5 fw-bold mb-2">Localización</h3>
