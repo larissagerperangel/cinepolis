@@ -22,6 +22,21 @@ class Showtime extends Model
         'available_seats' => 'array',
     ];
 
+    // MÉTODO PARA OBTENER AVAILABLE_SEATS COMO ARRAY SIEMPRE
+    public function getAvailableSeatsAttribute($value)
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            return is_array($decoded) ? $decoded : [];
+        }
+        
+        if (is_array($value)) {
+            return $value;
+        }
+        
+        return [];
+    }
+
     public function movie()// Define una relación: "un horario pertenece a una película"
     {
         return $this->belongsTo(Movie::class);

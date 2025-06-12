@@ -109,7 +109,7 @@
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach($movie->showtimes as $showtime)
                                 <a href="{{ route('booking.create', ['id' => $movie->id, 'time' => $showtime->time, 'day' => $day]) }}" class="btn btn-outline-secondary btn-sm">
-                                    {{ $showtime->time }}
+                                    {{ $showtime->time }} <span class="badge bg-light text-dark border"><small class="text-muted"> Sala {{ $showtime->room }}</small></span>
                                 </a>
                                 @endforeach
                             </div>
@@ -124,16 +124,25 @@
         <div class="tab-pane fade" id="cast-tab-pane" role="tabpanel" tabindex="0">
             <h2 class="fs-4 fw-bold mb-4">Reparto principal</h2>
             
+            @if(count($movie->cast) > 0)
             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
                 @foreach($movie->cast as $index => $actor)
                 <div class="col text-center">
-                    <div class="position-relative rounded-circle overflow-hidden mx-auto mb-3" style="width: 120px; height: 120px;">
-                        <img src="{{ asset('images/cast/actor' . ($index + 1) . '.jpg') }}" class="w-100 h-100 object-fit-cover" alt="{{ $actor }}">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto mb-3 actor-image-container" style="width: 120px; height: 120px;">
+                        {{-- USAR EL MÉTODO getActorImage() DEL MODELO --}}
+                        <img 
+                            src="{{ $movie->getActorImage($actor, $index) }}" 
+                            class="w-100 h-100 object-fit-cover actor-image" 
+                            alt="{{ $actor }}"
+                            onerror="this.src='{{ asset('images/cast/default-actor.jpg') }}'"
+                            loading="lazy"
+                        >
                     </div>
                     <h3 class="fs-6 fw-medium">{{ $actor }}</h3>
                 </div>
                 @endforeach
             </div>
+            @endif
         </div>
     </div>
     
@@ -150,6 +159,9 @@
                 <div class="card h-100 shadow-sm">
                     <div class="position-relative" style="height: 250px;">
                         <img src="{{ asset('images/movies/' . $relatedMovie->poster_image) }}" class="card-img-top h-100 object-fit-cover" alt="{{ $relatedMovie->title }}">
+                        <div class="position-absolute top-0 end-0 m-2">
+                            <span class="badge bg-dark">{{ $relatedMovie->classification }}</span>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold">{{ $relatedMovie->title }}</h5>
@@ -200,6 +212,42 @@
     .nav-tabs .nav-link:hover:not(.active) {
         border-color: transparent;
         color: #D32F2F;
+    }
+    .actor-image-container {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 3px solid transparent;
+        background: #f8f9fa;
+    }
+    
+    .actor-image-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-color: #D32F2F;
+    }
+    
+    .actor-image {
+        transition: transform 0.3s ease;
+    }
+    
+    .actor-image-container:hover .actor-image {
+        transform: scale(1.1);
+    }
+    
+    /* Placeholder para imágenes que no cargan */
+    .actor-image-container::before {
+        content: '👤';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: #6c757d;
+        z-index: 1;
+    }
+    
+    .actor-image {
+        position: relative;
+        z-index: 2;
     }
 </style>
 @endpush

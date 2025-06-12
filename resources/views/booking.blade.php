@@ -4,6 +4,20 @@
 
 @section('content')
 <div class="container py-5">
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+    @if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <div class="row g-4">
         <!-- Información de la película -->
         <div class="col-md-4">
@@ -83,7 +97,7 @@
                                 @foreach($movie->showtimes as $showtime)
                                 <div class="col">
                                     <button type="button" class="time-button btn w-100 {{ request()->input('time') == $showtime->time ? 'btn-danger' : 'btn-outline-secondary' }}" data-time="{{ $showtime->time }}">
-                                        {{ $showtime->time }}
+                                        {{ $showtime->time }}<small class="text-muted"> Sala {{ $showtime->room }}</small>
                                     </button>
                                 </div>
                                 @endforeach
@@ -167,7 +181,7 @@
                         <div class="tab-pane fade" id="payment-tab-pane" role="tabpanel" tabindex="0">
                             <form id="booking-form" action="{{ route('booking.store') }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="showtime_id" id="showtime-id" value="1">
+                                <input type="hidden" name="showtime_id" id="showtime-id" value="{{ $movie->showtimes->first()->id ?? 1 }}">
                                 <input type="hidden" name="seats" id="selected-seats" value="">
                                 
                                 <h2 class="fs-5 fw-bold mb-3">Información de contacto</h2>
@@ -175,12 +189,18 @@
                                 <div class="mb-4">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Nome completo</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
+                                        @error('name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Correo electrónico</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
+                                        @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 

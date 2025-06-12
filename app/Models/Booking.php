@@ -16,6 +16,8 @@ class Booking extends Model
         'total_price',
         'payment_method',
         'status',
+        'customer_name',    
+        'customer_email',
     ];
 
     protected $casts = [ // convierto los campos cuando se recuperan de la BD
@@ -31,5 +33,10 @@ class Booking extends Model
     public function showtime()// Define una relación: "una reserva solo tiene un horario"
     {
         return $this->belongsTo(Showtime::class);
+    }
+
+     public function getSeatNumbersAttribute()
+    {
+        return $this->seats ?? [];
     }
 }

@@ -2,7 +2,7 @@
 
 @section('title', 'Cinépolis - O teu cine máis cerca') <!-- Definimos el título -->
 
-@section('content') <!-- Contenido del Inicio -->
+@section(section: 'content') <!-- Contenido del Inicio -->
 <!-- Carusel -->
 <div id="Carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -16,7 +16,7 @@
                         <h2 class="text-white display-6 fw-bold mb-2">{{ $movie->title }}</h2> <!-- el título -->
                         <p class="text-white mb-4 col-md-8">{{ $movie->short_description }}</p> <!-- una breve descripción -->
                         <div class="d-flex gap-2 flex-wrap">
-                            <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-danger">Ver detalles</a> <!-- un botón para ver los detalles de las películas -->
+                            <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-danger btn-fix" style="display: block; width: 15%; text-align: center;">Ver detalles</a> <!-- un botón para ver los detalles de las películas -->
                             <a href="{{ route('booking.create', $movie->id) }}" class="btn btn-outline-light">Comprar entradas</a> <!-- un botón para comprar las entradas -->
                         </div>
                     </div>
@@ -50,6 +50,9 @@
                 <div class="card h-100 shadow-sm">
                     <div class="position-relative" style="height: 350px;">
                         <img src="{{ asset('images/movies/' . $movie->poster_image) }}" class="card-img-top h-100 object-fit-cover" alt="{{ $movie->title }}"> <!-- Muestro la imagen del poster -->
+                        <div class="position-absolute top-0 end-0 m-2">
+                            <span class="badge bg-dark">{{ $movie->classification }}</span>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold">{{ $movie->title }}</h5> <!-- El título de la película -->
@@ -157,5 +160,24 @@
     .object-fit-cover {
         object-fit: cover;
     } /* Aseguro que las imagenes cubrar su espacio asignado sin deformarse */
+    .btn-fix {
+        position: relative !important;
+        z-index: 2 !important;
+        display: inline-block !important;
+        text-align: center !important;
+        cursor: pointer !important;
+    }
+    .btn-fix:before {/* Crear un área clickeable invisible que cubra todo el botón */
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        z-index: -1 !important;
+    }
+    .btn-fix * {/* Asegurar que el contenido del botón no interfiera */
+        pointer-events: none !important;
+    }
 </style>
 @endpush

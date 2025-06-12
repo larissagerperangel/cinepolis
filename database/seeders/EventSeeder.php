@@ -46,8 +46,17 @@ class EventSeeder extends Seeder
                 'date' => '2025-06-30',
                 'time' => '19:00',
                 'room' => '3',
-                'price' => '7€ (abono completo 30€)',
+                'price' => '30€',
                 'image' => 'event4.jpg',
+            ],
+            [
+                'title' => 'Maraton de cine en Familia',
+                'description' => 'Un momento para desconectar y pasarlo bien con toda la familia, con buen ambiente, buen sonido e imagen y sobre todo buenas peliculas.',
+                'date' => '2025-07-22',
+                'time' => '17:00',
+                'room' => '3',
+                'price' => '10€',
+                'image' => 'event5.jpg',
             ],
         ];
 

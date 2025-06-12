@@ -56,7 +56,7 @@
             </div>
         </div>
         
-        @foreach($genres as $genre) <!-- reste de las pesteñas, género a género -->
+        @foreach($genres as $genre) <!-- resto de las pesteñas, género a género -->
         <div class="tab-pane fade" id="{{ Str::slug($genre) }}-tab-pane" role="tabpanel" tabindex="0">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                 @foreach($movies->where('genre', $genre) as $movie) <!-- filtro las películas por su género -->
@@ -112,7 +112,7 @@
                                 <h6 class="card-title fw-bold mb-2">{{ $movie->title }}</h6> <!-- título -->
                                 <div class="d-flex flex-wrap gap-1 mb-2">
                                     @foreach($movie->showtimes as $showtime) <!-- horarios -->
-                                    <span class="badge bg-light text-dark border">{{ $showtime->time }}</span>
+                                    <span class="badge bg-light text-dark border">{{ $showtime->time }}<small class="text-muted"> Sala {{ $showtime->room }}</small></span>
                                     @endforeach
                                 </div>
                                 <a href="{{ route('booking.create', $movie->id) }}" class="text-danger small fw-medium text-decoration-none">Reservar</a> <!-- botón de reservas -->

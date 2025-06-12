@@ -3,14 +3,25 @@ CINEPOLIS/
 ├── app/
 │   ├── Http/
 │   │   └── Controllers/
-│   │      └── Auth/
-│   │         ├── ConfirmPasswordController.php
-│   │         ├── ForgotPasswordController.php
-│   │         ├── LoginController.php
-│   │         ├── RegisterController.php
-│   │         ├── ResetPasswordController.php
-│   │         └── VerificationController.php
-│   └── Models/
+|   |     ├── BookingController.php
+|   |     ├── ContactController.php
+|   |     ├── Controller.php
+|   |     ├── EventController.php
+|   |     ├── HomeController.php
+│   │     ├── MovieController.php
+|   |     ├── SpaController.php
+│   │     └── Auth/
+│   │        ├── ConfirmPasswordController.php
+│   │        ├── ForgotPasswordController.php
+│   │        ├── LoginController.php
+│   │        ├── RegisterController.php
+│   │        ├── ResetPasswordController.php
+│   │        └── VerificationController.php
+│   ├── Models/
+|   |   ├── Booking.php
+|   |   ├── Event.php
+|   |   ├── Movie.php
+|   |   └── Showtime.php
 │   └── Providers/
 │       └── AppServiceProvider.php
 │
@@ -39,11 +50,17 @@ CINEPOLIS/
 │   ├── factories/
 │   │   └── UserFactory.php
 │   ├── migrations/
-│   │   ├── 2025_05_19_141938_create_events_table.php
-│   │   ├── 2025_05_19_141937_create_movies_table.php
-│   │   ├── 2025_05_19_141938_create_showtimes_table.php
-│   │   └── 2025_05_19_141938_create_bookings_table.php
+│   │   ├── 2025_05_20_151600_create_users_table.php
+│   │   ├── 2025_05_20_151633_create_movies_table.php
+│   │   ├── 2025_05_20_151649_create_showtimes_table.php
+│   │   ├── 2025_05_20_151658_create_bookings_table.php
+│   │   ├── 2025_05_20_151712_create_events_table.php
+│   │   └── 2025_05_20_151735_create_sessions_table.php
 │   ├── seeders/
+│   │   ├── DatabaseSeeder.php
+│   │   ├── EventSeeder.php
+│   │   ├── MovieSeeder.php
+│   │   └── ShowtimeSeeder.php
 │   ├── .gitignore
 │   └── database.sqlite
 │
@@ -51,31 +68,68 @@ CINEPOLIS/
 │
 ├── public/
 │   ├── css/
+|   |   ├── app.css
+│   │   └── cinepolis-modern.css
+|   ├── images/
+|   |   ├── cast/
+|   |   ├── events/
+|   |   |   ├── event1.jpg
+|   |   |   ├── event2.jpg
+|   |   |   ├── event3.jpg
+|   |   |   └── event4.jpg
+|   |   └── movies/
+|   |      ├── movie1-cover.jpg
+|   |      ├── movie1-poster.jpg
+|   |      ├── movie2-cover.jpg
+|   |      ├── movie2-poster.jpg
+|   |      ├── movie3-cover.jpg
+|   |      ├── movie3-poster.jpg
+|   |      ├── movie4-cover.jpg
+|   |      ├── movie4-poster.jpg
+|   |      ├── movie5-cover.jpg
+|   |      ├── movie5-poster.jpg
+|   |      ├── movie6-cover.jpg
+|   |      ├── movie6-poster.jpg
+|   |      ├── movie7-cover.jpg
+|   |      ├── movie7-poster.jpg
+|   |      ├── movie8-cover.jpg
+|   |      └── movie8-poster.jpg
 │   ├── js/
+|   |   ├── app.js
+│   │   └── cinepolis-modern.js
 │   ├── .htaccess
 │   ├── favicon.ico
 │   ├── index.php
 │   └── robots.txt
 │
 ├── resources/
-│   ├── css/
-│   ├── js/
-│   ├── sass/
-│   │   ├── _variables.scss
-│   │   └── app.scss
 │   └── views/
 │       ├── admin/
 │       ├── auth/
 │       │   ├── passwords/
 │       │   |   ├── confirm.blade.php
 │       │   |   ├── email.blade.php
-│       │   |   ├── reset.blade.php
+│       │   |   └── reset.blade.php
 │       │   ├── login.blade.php
 │       │   ├── register.blade.php
 │       │   └── verify.blade.php
-│       └── layouts/
+│       ├── layouts/
+|       |   └── app.blade.php
+│       ├── movies/
+|       |   └── show.blade.php
+│       ├── partials/
+|       |   ├── header.blade.php
+|       |   └── footer.blade.php
+|       ├── booking.blade.php
+|       ├── cartelera.blade.php
+|       ├── contacto.blade.php
+│       ├── event-booking.blade.php
+│       ├── event-details.blade.php
+|       ├── eventos.blade.php
+|       └── home.blade.php
 │
 ├── routes/
+|   └── web.php
 │
 ├── storage/
 │   ├── app/
@@ -97,18 +151,32 @@ CINEPOLIS/
 │   |   |   ├── .gitignore
 │   |   |   ├── 0d795724e6bfaf4bf8d077bbd60b20f8.php
 │   |   |   ├── 1dd463a782754a52c1074ad430c2813f.php
+│   |   |   ├── 2c838af2356800c2bd087c009dbd21e9.php
 │   |   |   ├── 2d8e2574a65834768b1f7a67da2587c5.php
 │   |   |   ├── 4d1104de87ae211aa944b180d41f0c31.php
+│   |   |   ├── 6ba2acec4b51fc1d5fbeae4c3b3d91ce.php
+│   |   |   ├── 6cf6a41115244f46433d44e49f80772e.php
+│   |   |   ├── 6f9f172d428cbe6363952abb8024c5ff.php
+│   |   |   ├── 7d2c2b283e8930d9e878590361aafbd2.php
 │   |   |   ├── 17dab6410345356f9e1c1f2f4b777b7b.php
+│   |   |   ├── 32b2eb916412078f7deb93bf9b0da9b4.php
 │   |   |   ├── 044efc5eefdeb475e644051d52906295.php
+│   |   |   ├── 60d140c596f937194709b4b22803a8f9.php
+│   |   |   ├── 63a4d63f457b298d10bf74c828193788.php
 │   |   |   ├── 63f58b6bf84cc13a7b06efaf96a87c70.php
 │   |   |   ├── 93a7222b256821cec657544ce1c0892d.php
+│   |   |   ├── 602ea6e00920cbc018ac990c856e5bb0.php
+│   |   |   ├── 781aed755283dc3c441b26535a0fa61d.php
 │   |   |   ├── 787d2cceb9f2c93bcd2d6d9d00ce0465.php
 │   |   |   ├── 2505fafe8d1fc79b08957713d680def4.php
+│   |   |   ├── 8831d8d215eecc107a32c56dc7d5fffc.php
+│   |   |   ├── 6364989f56f25f928ac93e4a11661cd3.php
 │   |   |   ├── 79611179a804e7ec68867b654aad6b59.php
 │   |   |   ├── a05b194adfef56b9e4ca21a5f4202110.php
+│   |   |   ├── acdeebf5d7f83b6d46b2883500e337b3.php
 │   |   |   ├── affd144ccd4fc9189fb74a284e5abce3.php
 │   |   |   ├── d06af4cfbfabefaed5e13ff139c6ca18.php
+│   |   |   ├── d9acaaa56ce99a478f740fb0e24191f4.php
 │   |   |   ├── eab555ac58751d63d041e063c2c3d65e.php
 │   |   |   ├── eb1f9ceeab83481c916e7436c7321445.php
 │   |   |   ├── f2ccfe0792b03fad44d4156fd2295ad2.php
@@ -142,6 +210,8 @@ CINEPOLIS/
 ├── composer.json
 |
 ├── composer.lock
+|
+├── LICENSE
 |
 ├── package-lock.json
 |

@@ -84,12 +84,15 @@
                 </div>
                 </br>   
                 <p class="text small mb-3">Subscríbete para recibir as últimas novidades e promocións.</p>
-                <form action="#" method="POST"> <!-- faltaría conectar el backend -->
+                <form id="newsletterForm">
                     <div class="input-group">
-                        <input type="email" class="form-control form-control-sm bg-dark text-white" placeholder="O teu email" required>
+                        <input type="email" id="subscribeEmail" class="form-control form-control-sm bg-dark text-white" placeholder="O teu email" required>
                         <button type="submit" class="btn btn-danger btn-sm">Enviar</button>
                     </div>
                 </form>
+                <div id="successMessage" class="text-success small mt-2" style="display: none; text-decoration: underline">
+                    Suscrito con éxito!
+                </div>
             </div>
         </div>
         
@@ -113,3 +116,28 @@
         </div>
     </div>
 </footer>
+
+@push('scripts')
+<script>
+    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const emailInput = document.getElementById('subscribeEmail');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Validación simple de email
+        if (emailInput.checkValidity()) {
+            // Mostrar mensaje de éxito
+            successMessage.style.display = 'block';
+            
+            // Resetear el formulario
+            emailInput.value = '';
+            
+            // Ocultar el mensaje después de 3 segundos
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+    });
+</script>
+@endpush

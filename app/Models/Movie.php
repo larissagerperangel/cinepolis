@@ -32,6 +32,70 @@ class Movie extends Model
         'duration' => 'integer',
     ];
 
+    // MÉTODO PARA OBTENER CAST COMO ARRAY SIEMPRE
+    public function getCastAttribute($value)
+    {
+        if (is_string($value)) {
+            // Si es string, intentar decodificar JSON
+            $decoded = json_decode($value, true);
+            return is_array($decoded) ? $decoded : explode(',', $value);
+        }
+        
+        if (is_array($value)) {
+            return $value;
+        }
+        
+        // Si es null o vacío, devolver array vacío
+        return [];
+    }
+
+    // MÉTODO OPTIMIZADO PARA OBTENER LA IMAGEN DE UN ACTOR
+    public function getActorImage($actorName, $index = 0)
+    {
+        // Limpiar el nombre del actor para usarlo como nombre de archivo
+        $cleanName = $this->cleanActorName($actorName);
+        
+        // Buscar imagen específica del actor 
+        $specificImage = "images/cast/{$cleanName}.jpg";
+        if (file_exists(public_path($specificImage))) {
+            return asset($specificImage);
+        }
+        
+        // Imagen por defecto
+        return asset('images/cast/default-actor.jpg');
+    }
+
+    // MÉTODO MEJORADO PARA LIMPIAR NOMBRE DEL ACTOR
+    private function cleanActorName($name)
+    {
+        // Convertir a minúsculas
+        $clean = strtolower($name);
+        
+        // Reemplazar caracteres especiales comunes
+        $replacements = [
+            'á' => 'a', 'à' => 'a', 'ä' => 'a', 'â' => 'a',
+            'é' => 'e', 'è' => 'e', 'ë' => 'e', 'ê' => 'e',
+            'í' => 'i', 'ì' => 'i', 'ï' => 'i', 'î' => 'i',
+            'ó' => 'o', 'ò' => 'o', 'ö' => 'o', 'ô' => 'o',
+            'ú' => 'u', 'ù' => 'u', 'ü' => 'u', 'û' => 'u',
+            'ñ' => 'n', 'ç' => 'c'
+        ];
+        
+        $clean = str_replace(array_keys($replacements), array_values($replacements), $clean);
+        
+        // Reemplazar espacios y puntos por guiones
+        $clean = preg_replace('/[\s\.]+/', '-', $clean);
+        
+        // Eliminar caracteres especiales excepto guiones
+        $clean = preg_replace('/[^a-z0-9\-]/', '', $clean);
+        
+        // Eliminar guiones múltiples
+        $clean = preg_replace('/-+/', '-', $clean);
+        
+        // Eliminar guiones al inicio y final
+        return trim($clean, '-');
+    }
+
     public function showtimes()// Define una relación: "una película tiene muchos horarios"
     {
         return $this->hasMany(Showtime::class);

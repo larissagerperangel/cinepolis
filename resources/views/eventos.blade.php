@@ -8,6 +8,13 @@
         <i class="far fa-calendar-alt text-danger me-2"></i>
         <h1 class="fs-2 fw-bold mb-0">Eventos especiais</h1>
     </div>
+
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     
     <p class="text-muted mb-5 col-lg-8"> <!-- Presento la sección de eventos con un breve resumen explicativo -->
         Descubre os eventos exclusivos que temos preparados para ti no noso cine. Desde maratóns temáticas ata estreas
@@ -30,7 +37,7 @@
                             <div class="d-flex flex-wrap gap-3 mb-3">
                                 <div class="d-flex align-items-center text-muted small"> <!-- data -->
                                     <i class="far fa-calendar-alt text-danger me-1"></i>
-                                    <span>{{ $event->date }}</span>
+                                    <span>{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</span> <!-- la data era un campo datetime y lo modifico a solo date -->
                                 </div>
                                 <div class="d-flex align-items-center text-muted small"> <!-- hora -->
                                     <i class="far fa-clock text-danger me-1"></i>
@@ -46,7 +53,11 @@
                             
                             <div class="d-flex justify-content-between align-items-center mt-auto"> <!-- botón de reserva -->
                                 <span class="fw-bold fs-5">{{ $event->price }}</span>
-                                <a href="#" class="btn btn-danger">Reservar praza</a> <!-- Falta el funcionamiento -->
+                                <div class="d-flex gap-2">
+                                    {{-- ✅ ENLACES CORREGIDOS --}}
+                                    <a href="{{ route('eventos.show', $event->id) }}" class="btn btn-outline-secondary">Detalles</a>
+                                    <a href="{{ route('eventos.booking', $event->id) }}" class="btn btn-danger">Reservar praza</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -72,8 +83,8 @@
                     </div>
                     <div class="card-body">
                         <h3 class="card-title fs-5 fw-bold mb-2">{{ $event->title }}</h3> <!-- título -->
-                        <p class="card-text text-muted small mb-3">{{ $event->date }}</p> <!-- data --> 
-                        <a href="#" class="btn btn-outline-secondary w-100">Máis información</a> <!-- botón de más información, aún sin su funcionalidad --> 
+                        <p class="card-text text-muted small mb-3">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}</p> <!-- data --> 
+                        <a href="{{ route('eventos.show', $event->id) }}" class="btn btn-outline-secondary w-100">Máis información</a> <!-- botón de más información, aún sin su funcionalidad --> 
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
@@ -21,8 +21,17 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
         
-        // Redirecciono los emails (a mi correo)
-        Mail::to('larigerpe07@gmail.com')->send(new ContactFormMail($request->all()));
+        // Guardar el mensaje en los logs para revisión
+        Log::info('Nuevo mensaje de contacto', [
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'timestamp' => now()
+        ]);
+        
+        // Aquí puedes implementar el envío real de email más tarde
+        // Por ahora, solo simulamos el envío exitoso
         
         return back()->with('success', 'Mensaxe enviada con éxito. Recibirás unha resposta en breve.'); // Devuelvo un mensaje de exisito al enviar el formulario
     }

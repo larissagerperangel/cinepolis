@@ -27,9 +27,36 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('contacto') ? 'active fw-bold text-danger' : '' }}" href="{{ route('contacto') }}" style="color:white">Contacto</a>
                     </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-danger" href="{{ route('cartelera') }}">Compra a túa entrada</a> <!-- botón rojo destacado, redirige a la cartelera -->
+
+                    @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link border border-danger rounded" href="#" id="navbarDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false"  style="color:white;">
+                            <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('perfil') }}">O meu perfil</a></li>
+                            <li><a class="dropdown-item" href="{{ route('reservas') }}">As miñas reservas</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}" 
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Pechar sesión
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('login') ? 'active fw-bold text-danger' : '' }}" 
+                        href="{{ route('login') }}" style="color:white;">
+                            <i class="fas fa-sign-in-alt me-1"></i> Iniciar sesión
+                        </a>
+                    </li>
+                    @endauth
                 </ul>
             </div>
         </nav>

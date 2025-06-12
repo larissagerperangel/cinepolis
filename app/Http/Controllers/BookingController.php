@@ -10,56 +10,66 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    public function create($id)// Muestro el formulario de reserva para una película
+    public function create($id) // Muestro el formulario de reserva para una película
     {
-        $movie = Movie::findOrFail($id);
+        // Cargar la película con sus horarios
+        $movie = Movie::with('showtimes')->findOrFail($id);
         $days = ['Hoxe', 'Mañá', 'Pasado mañá'];
         
-        // Obtener los horarios disponibles para esta película
-        $showtimes = Showtime::where('movie_id', $id)
-                            ->orderBy('time')
-                            ->get()
-                            ->groupBy('date');
-        
-        return view('booking', compact('movie', 'days', 'showtimes'));
+        return view('booking', compact('movie', 'days'));
     }
     
-    public function store(Request $request)// Proceso el formulario de reserva
+    public function store(Request $request) // Proceso el formulario de reserva
     {
         $request->validate([ // Valido los datos del formulario
             'showtime_id' => 'required|exists:showtimes,id',
-            'seats' => 'required|array',
+            'seats' => 'required|string', // Cambiado a string porque viene como JSON
             'payment_method' => 'required|in:card,paypal',
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
         ]);
         
+        // Decodificar los asientos del JSON
+        $seats = json_decode($request->seats, true);
+        
+        if (!is_array($seats) || empty($seats)) {
+            return back()->with('error', 'Debes seleccionar polo menos un asento.');
+        }
+        
         $showtime = Showtime::findOrFail($request->showtime_id);
         $seatPrice = 7.50;
-        $totalPrice = count($request->seats) * $seatPrice;
+        $totalPrice = count($seats) * $seatPrice;
         
-        // Verifico que los asientos estén disponibles
-        $availableSeats = $showtime->available_seats ?? [];
-        foreach ($request->seats as $seat) {
-            if (in_array($seat, $availableSeats)) {
+        // Verificar que los asientos estén disponibles
+        $occupiedSeats = $showtime->available_seats;
+        
+        // Asegurar que $occupiedSeats es un array
+        if (!is_array($occupiedSeats)) {
+            $occupiedSeats = [];
+        }
+        
+        foreach ($seats as $seat) {
+            if (in_array($seat, $occupiedSeats)) {
                 return back()->with('error', 'Algún dos asentos seleccionados xa non está dispoñible.');
             }
         }
         
-        // Actualizo los asientos disponibles en la BD
-        $showtime->available_seats = array_merge($availableSeats, $request->seats);
-        $showtime->save();
+        // Actualizar los asientos ocupados
+        $newOccupiedSeats = array_merge($occupiedSeats, $seats);
+        $showtime->update(['available_seats' => $newOccupiedSeats]);
         
-        // Crear la nueva reserva
+        // Crear la reserva
         $booking = Booking::create([
-            'user_id' => Auth::id() ?? 1, // Si no hay usuario autenticado, usar ID 1
+            'user_id' => Auth::id() ?? null, // Si no hay usuario autenticado, usar null
             'showtime_id' => $request->showtime_id,
-            'seats' => $request->seats,
+            'seats' => $seats,
             'total_price' => $totalPrice,
             'payment_method' => $request->payment_method,
             'status' => 'completed',
+            'customer_name' => $request->name,
+            'customer_email' => $request->email,
         ]);
         
-        return redirect()->route('home')->with('success', 'Reserva completada con éxito.'); // Redirijo al usuario a la página principal con un mensaje de éxito
+        return redirect()->route('home')->with('success', 'Reserva completada con éxito. Recibirás un email de confirmación.'); // Redirijo al usuario a la página principal con un mensaje de éxito
     }
 }

@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');('cascade');
             $table->foreignId('showtime_id')->constrained()->onDelete('cascade');
             $table->json('seats');
-            $table->float('total_price', 8, 2);
-            $table->string('payment_method');
-            $table->string('status')->default('pending');
+            $table->decimal('total_price', 8, 2);
+            $table->enum('payment_method', ['card', 'paypal']);
+            $table->enum ('status',['pending', 'completed', 'cancelled'])->default('pending');
+            $table->string('customer_name');
+            $table->string('customer_email');
             $table->timestamps();
         });
     }
