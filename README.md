@@ -128,7 +128,7 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 
 - **Backend:** Laravel (PHP)
 - **Frontend:** HTML5, CSS3, JavaScript, Bootstrap5 
-- **Base de datos:** MySQL8
+- **Base de datos:** MySQL
 - **Iconas:** Font Awesome
 - **Fontes:** Google Fonts (Roboto)...
 
