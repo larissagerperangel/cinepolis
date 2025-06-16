@@ -126,9 +126,9 @@ Antes de instalar a aplicación, necesitas ter instalado na túa computadora:
 
 ## 📚 Tecnoloxías utilizadas
 
-- **Backend:** Laravel9 (PHP)
+- **Backend:** Laravel (PHP)
 - **Frontend:** HTML5, CSS3, JavaScript, Bootstrap5 
-- **Base de datos:** MySQL
+- **Base de datos:** MySQL8
 - **Iconas:** Font Awesome
 - **Fontes:** Google Fonts (Roboto)...
 
